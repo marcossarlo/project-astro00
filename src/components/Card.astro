@@ -2,7 +2,7 @@
 interface Props {
 	title: string;
 	time: string;
-	tags: string;
+	tags: string[];
 }
 
 const { time, title, tags } = Astro.props;
@@ -42,17 +42,14 @@ theme: {
     </a>
 
     <div class="mt-4 flex flex-wrap gap-1">
-      <span
-        class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 dark:bg-purple-600 dark:text-purple-100"
-      >
-        {tags}
-      </span>
-
-      <span
-        class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 dark:bg-purple-600 dark:text-purple-100"
-      >
-        JavaScript
-      </span>
+      {
+        tags.map((item) => (
+          <span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 dark:bg-purple-600 dark:text-purple-100">
+              {item}
+          </span>
+        ))
+      }
+      
     </div>
   </div>
 </article>

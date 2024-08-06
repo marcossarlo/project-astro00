@@ -1,20 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
 
 const allPosts = await Astro.glob("../content/*.md");
 ---
 
-<Layout title="Welcome to Astro">
+<Layout title="Blog de MarcosSarLo">
 	<main>		
-		<Header title="MarcosSarLo" />		
-		<Hero />	
+		<Header title="Blog de MarcosSarLo" />		
+		<Hero />
 		<!-- Enlaces de Navegación -->
 		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/blog/">Blog</a>
 		<hr><br>
 
+		<h1>Mi blog de Astro aprendizaje</h1>
+        <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
+		<br>
 		<ul role="list" class="link-card-grid">
 			{
 				allPosts.map((item) => (
@@ -26,6 +29,7 @@ const allPosts = await Astro.glob("../content/*.md");
 				))
 			}
 		</ul>
+		
 	</main>
 </Layout>
 
@@ -39,12 +43,16 @@ const allPosts = await Astro.glob("../content/*.md");
 		font-size: 20px;
 		line-height: 1.6;
 	}
-		
-	
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	h1 {
+		font-size:xx-large;
+	}
+	h2 {
+		font-size:x-large
 	}
 </style>

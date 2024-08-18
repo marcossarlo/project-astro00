@@ -1,9 +1,11 @@
 ---
-title: "Hello JavaScript"
-pubDate: 2024-08-20
+title: "Hello World"
+pubDate: 2024-08-17
 description: "Hello this is my first recommendation"
-image:
-tags: ["astro", "javascript❤️❤️"]
+image: "https://picsum.photos/460/380"
+tags: ["astro ❤️❤️", "javascript"]
+
+layout: "../../layouts/Posts.astro"
 ---
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius quidem quam repellat.

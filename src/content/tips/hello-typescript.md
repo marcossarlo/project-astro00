@@ -2,8 +2,10 @@
 title: "Hello Type Script"
 pubDate: 2024-08-29
 description: "Hello this is my first recommendation"
-image:
+image: "https://picsum.photos/460/380"
 tags: ["astro", "Type Script❤️❤️", "JavaScript"]
+
+layout: "../../layouts/Posts.astro"
 ---
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius quidem quam repellat.

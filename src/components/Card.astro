@@ -3,28 +3,11 @@ interface Props {
 	title: string;
 	time: string;
 	tags: string[];
+  slug: string;
 }
 
-const { time, title, tags } = Astro.props;
+const { time, title, tags, slug } = Astro.props;
 ---
-
-<!--
-  Heads up! 👋
-
-theme: {
-  extend: {
-    animation: {
-      border: 'background ease infinite',
-    },
-    keyframes: {
-      background: {
-        '0%, 100%': { backgroundPosition: '0% 50%' },
-        '50%': { backgroundPosition: '100% 50%' },
-      },
-    },
-  },
-}
--->
 
 <!-- DARK MODE -->
 <article
@@ -35,7 +18,7 @@ theme: {
       {time}
     </time>
 
-    <a href="#">
+    <a href={`/posts/${slug}`}>
       <h3 class="mt-0.5 text-lg font-medium text-gray-900 dark:text-white">
         {title}
       </h3>

@@ -1,18 +1,22 @@
 ---
+const pageTitle = "Bienvenido a mi página en Astro";
+
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 
-const allPosts = await Astro.glob("../content/*.md");
+//Consultando Colecciones
+const allPosts = await Astro.glob("../content/tips/*.md");
+/* console.log(allPosts); */
 ---
 
-<Layout title="Welcome to Astro">
+<Layout title={pageTitle}>
 	<main>		
-		<Header title="MarcosSarLo" />		
+		<Header title={pageTitle} />		
 		<Hero />	
 		<!-- Enlaces de Navegación -->
-		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/blog/">Blog</a> | <a href="/contact/">Contacto</a>
+		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/posts/">Posts</a> | <a href="/contact/">Contacto</a>
 		<hr><br>
 
 		<ul role="list" class="link-card-grid">
@@ -22,6 +26,7 @@ const allPosts = await Astro.glob("../content/*.md");
 						title={item?.frontmatter.title}
 						time={item?.frontmatter.pubDate}
 						tags={item?.frontmatter.tags}
+						slug=slug
 					/>
 				))
 			}

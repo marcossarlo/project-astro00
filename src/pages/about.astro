@@ -1,25 +1,70 @@
 ---
+import "../styles/global.css";
+
+const pageTitle = "Acerca de MarcosSarLo";
+
+const identity = {
+	firstName: "Marcos",
+	country: "Perú",
+	occupation: "Webmaster",
+	hobbies: ["Music", "Alianza Lima", "Fotografía", "Series", "IA"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Diseño Gráfico"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "purple";
+const fontWeight = "bold";
+const textCase = "uppercase";
+
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-
-const allPosts = await Astro.glob("../content/*.md");
 ---
 
-<Layout title="Acerca de MarcosSarLo">
+<Layout title={pageTitle}>
 	<main>		
-		<Header title="Acerca de MarcosSarLo" />		
+		<Header title={pageTitle} />		
 		<Hero />
 		<!-- Enlaces de Navegación -->
-		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/blog/">Blog</a> | <a href="/contact/">Contacto</a>
+		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/posts/">Posts</a> | <a href="/contact/">Contacto</a>
 		<hr><br>
 
-		<h1>Sobre mi</h1>
+		<h1>{pageTitle}</h1>
 		<h2>... ¡y mi nuevo sitio Astro!</h2>
 
 		<p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
 
 		<p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
+		<hr><br>
+
+		<!-- Utilizando expresiones JavaScript en el FrontMatter de Astro -->
+		<h1>Utilizando expresiones JavaScript en el FrontMatter de Astro</h1>
+		<p>He aquí algunos datos sobre mí:</p>
+		<ul>
+			<li>Me llamo {identity.firstName}</li>
+			<li>Vivo en {identity.country} y trabajo como {identity.occupation}</li>
+			{identity.hobbies.length >= 2 &&
+				<li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+			  }
+		</ul>
+		<hr>
+		<p>Mis habilidades son:</p>
+		<ul>
+			{skills.map((skill) => <li class="skill">- {skill}</li>)}
+		</ul>
+		<hr><br>
+
+		<!-- Renderización condicional de elementos -->
+		<h1>Renderización condicional de elementos</h1>
+		<!-- {happy && <p>¡Estoy feliz de aprender Astro!</p>} -->
+		{happy ? <p>¡Estoy feliz de aprender Astro! <code>:)</code> </p> : <p>¡Es un poco dificil aprender Astro! <code>:(</code></p>}
+		{finished && <p>¡He terminado este tutorial!</p>}
+		{goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
+
 		<!--
 		<ul role="list" class="link-card-grid">
 			{
@@ -36,7 +81,8 @@ const allPosts = await Astro.glob("../content/*.md");
 	</main>
 </Layout>
 
-<style>
+/* pasar variables CSS directamente desde el frontmatter */
+<style define:vars={{skillColor, fontWeight, textCase}}>
 	main {
 		margin: auto;
 		padding: 1rem;
@@ -58,4 +104,9 @@ const allPosts = await Astro.glob("../content/*.md");
 	h2 {
 		font-size:x-large
 	}
+	.skill {
+    	color: var(--skillColor);
+    	font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
+  }
 </style>

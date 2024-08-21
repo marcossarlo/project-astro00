@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.vue';
 
 import { getCollection } from 'astro:content';
 
@@ -19,10 +20,7 @@ const posts = (await getCollection("tips")).sort(
 <Layout title={pageTitle}>
 	<main>		
 		<Header title= {pageTitle} />		
-		<Hero />	
-		<!-- Enlaces de Navegación -->
-		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/posts/">Posts</a> | <a href="/contact/">Contacto</a>
-		<hr><br>
+		<Hero />
 
 		<ul role="list" class="link-card-grid">
 			{
@@ -37,6 +35,7 @@ const posts = (await getCollection("tips")).sort(
 			}
 		</ul>
 	</main>
+	<Footer />
 </Layout>
 
 <style>

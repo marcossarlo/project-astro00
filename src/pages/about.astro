@@ -21,18 +21,19 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 
 import Layout from '../layouts/Layout.astro';
+import HeaderReact from "../components/HeaderReact";
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Footer from "../components/Footer.vue";
 ---
 
 <Layout title={pageTitle}>
 	<main>		
-		<Header title={pageTitle} />		
-		<Hero />
-		<!-- Enlaces de Navegación -->
-		<a href="/">Inicio</a> | <a href="/about/">Sobre mi</a> | <a href="/posts/">Posts</a> | <a href="/contact/">Contacto</a>
-		<hr><br>
+		<HeaderReact title="Header in React"/>
 
+		<!-- <Header title={pageTitle} />	 -->
+		<Hero />		
+		
 		<h1>{pageTitle}</h1>
 		<h2>... ¡y mi nuevo sitio Astro!</h2>
 
@@ -77,8 +78,9 @@ import Hero from '../components/Hero.astro';
 				))
 			}
 		</ul>
-		-->
+		-->		
 	</main>
+	<Footer />
 </Layout>
 
 /* pasar variables CSS directamente desde el frontmatter */

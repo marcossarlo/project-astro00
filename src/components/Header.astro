@@ -1,4 +1,5 @@
 ---
+import Hamburger from './Hamburger.astro';
 import Navigation from './Navigation.astro';
 
 interface Props {
@@ -36,9 +37,13 @@ const { title } = Astro.props;
             </linearGradient>
         </defs>
     </svg>
-    <h1>Welcome to <span class="text-gradient">{title}</span> website</h1>
-    <!-- Enlaces de Navegación -->
-    <nav><Navigation /></nav>
+    <h1>Welcome to <span class="text-gradient">{title}</span> website</h1>    
+    <nav>
+        <!-- Menu Hamburguesa -->
+        <Hamburger />
+        <!-- Enlaces de Navegación -->
+        <Navigation />
+    </nav>
 </header>
 
 <style>
